@@ -2,15 +2,22 @@ import { useState } from "react";
 import useForm from "./hooks/useForm";
 
 export default function App() {
-  const [formData, setFormData] = useState({
+  const initialState = {
     name: "",
     email: "",
     message: "",
-  });
-
-  const onChangeHandler = (e: any) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  const onSubmitHandler = (e: any) => {
+    e.preventDefault();
+    console.log("on submit");
+  };
+
+  const { error, formState, inputChangeHandler, submitHandler } = useForm(
+    initialState,
+    onSubmitHandler
+  );
+  console.log(error, formState, inputChangeHandler, submitHandler);
 
   return (
     <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
@@ -20,6 +27,7 @@ export default function App() {
         </h2>
       </div>
       <form
+        onSubmit={onSubmitHandler}
         action="#"
         method="POST"
         className="mx-auto mt-16 max-w-xl sm:mt-20"
@@ -72,7 +80,6 @@ export default function App() {
                 id="message"
                 rows={4}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                onChange={onChangeHandler}
               />
             </div>
           </div>

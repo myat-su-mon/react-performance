@@ -4,7 +4,7 @@ interface InitialStateType {
   [key: string]: string;
 }
 
-type SubmitType = (formData: InitialStateType) => Promise<void>;
+type SubmitType = (formData: InitialStateType) => void;
 
 const useForm = (initialState: InitialStateType, onSubmit: SubmitType) => {
   const [formState, setFormState] = useState<InitialStateType>(initialState);
