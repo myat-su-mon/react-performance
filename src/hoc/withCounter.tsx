@@ -6,7 +6,7 @@ export interface PropsType {
   decrement: () => void;
 }
 
-const withCounter = (WrappedComponent: FC<PropsType>, initialState) => {
+const withCounter = (WrappedComponent: FC<PropsType>, initialState: number) => {
   const WithCounter = () => {
     const [count, setCount] = useState<number>(initialState);
 
