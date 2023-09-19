@@ -1,40 +1,29 @@
-import React from "react";
-import Form from "./render/Form";
-
 const App = () => {
-  const initialState = { user: "", password: "" };
+  // const calculate = (
+  //   x: number,
+  //   y: number,
+  //   callback: (x: number, y: number) => void
+  // ) => {
+  //   return callback(x, y);
+  // };
+  // const addFunc = (x: number, y: number) => {
+  //   return x + y;
+  // };
+  // const subFunc = (x: number, y: number) => {
+  //   return x - y;
+  // };
+  // console.log(calculate(1, 3, subFunc));
 
-  const handleSubmit = (values: { [key: string]: string }) => {
-    console.log(values);
+  const greet = (prefix: string) => {
+    return function (name: string) {
+      console.log(`${prefix} ${name}`);
+    };
   };
 
-  return (
-    <div>
-      <Form
-        onSubmit={handleSubmit}
-        initialState={initialState}
-        render={(inputHandler, values) => (
-          <div>
-            <input
-              type="text"
-              name="user"
-              value={values.user}
-              onChange={inputHandler}
-            />
-            <input
-              type="text"
-              name="password"
-              value={values.password}
-              onChange={inputHandler}
-            />
-            <button type="submit" className="bg-black w-32 text-white">
-              Submit
-            </button>
-          </div>
-        )}
-      />
-    </div>
-  );
+  const sayHi = greet("hello");
+  sayHi("myat");
+
+  return <div>App</div>;
 };
 
 export default App;
