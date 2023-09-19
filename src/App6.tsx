@@ -1,5 +1,6 @@
 import React from "react";
 import Form from "./render/Form";
+import CompoC from "./components/CompoC";
 
 const App = () => {
   const initialState = { user: "", password: "" };

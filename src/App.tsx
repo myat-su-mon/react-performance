@@ -1,3 +1,4 @@
+import CompoC from "./components/CompoC";
 import withCounter, { PropsType } from "./hoc/withCounter";
 
 const initialState = 10;
@@ -11,6 +12,8 @@ const App = ({ count, increment, decrement }: PropsType) => {
       <button onClick={increment} className="bg-black text-white">
         +
       </button>
+
+      <CompoC />
     </div>
   );
 };
