@@ -1,29 +1,17 @@
-const App = () => {
-  // const calculate = (
-  //   x: number,
-  //   y: number,
-  //   callback: (x: number, y: number) => void
-  // ) => {
-  //   return callback(x, y);
-  // };
-  // const addFunc = (x: number, y: number) => {
-  //   return x + y;
-  // };
-  // const subFunc = (x: number, y: number) => {
-  //   return x - y;
-  // };
-  // console.log(calculate(1, 3, subFunc));
+import withCounter, { PropsType } from "./hoc/withCounter";
 
-  const greet = (prefix: string) => {
-    return function (name: string) {
-      console.log(`${prefix} ${name}`);
-    };
-  };
-
-  const sayHi = greet("hello");
-  sayHi("myat");
-
-  return <div>App</div>;
+const App = ({ count, increment, decrement }: PropsType) => {
+  return (
+    <div>
+      <h2 className="text-black">{count}</h2>
+      <button onClick={decrement} className="bg-black text-white">
+        -
+      </button>
+      <button onClick={increment} className="bg-black text-white">
+        +
+      </button>
+    </div>
+  );
 };
 
-export default App;
+export default withCounter(App);
