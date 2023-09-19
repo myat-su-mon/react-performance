@@ -1,5 +1,6 @@
 import withCounter, { PropsType } from "./hoc/withCounter";
 
+const initialState = 10;
 const App = ({ count, increment, decrement }: PropsType) => {
   return (
     <div>
@@ -14,4 +15,4 @@ const App = ({ count, increment, decrement }: PropsType) => {
   );
 };
 
-export default withCounter(App);
+export default withCounter(App, initialState);
