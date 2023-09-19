@@ -5,6 +5,7 @@ const App = () => {
   return (
     <div className="flex gap-3">
       <Counter
+        defaultValue={10}
         render={(increment, decrement, count) => (
           <div>
             <h3 className={`${count > 5 ? "text-teal-300" : "text-red-300"}`}>

@@ -1,13 +1,14 @@
 import { ReactNode, useState } from "react";
 
 interface PropsType {
+  defaultValue: number;
   render: (
     increment: () => void,
     decrement: () => void,
     count: number
   ) => ReactNode;
 }
-const Counter = ({ render }: PropsType) => {
+const Counter = ({ render, defaultValue }: PropsType) => {
   const [count, setCount] = useState<number>(0);
 
   const increment = () => {
