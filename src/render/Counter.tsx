@@ -9,7 +9,7 @@ interface PropsType {
   ) => ReactNode;
 }
 const Counter = ({ render, defaultValue }: PropsType) => {
-  const [count, setCount] = useState<number>(0);
+  const [count, setCount] = useState<number>(defaultValue);
 
   const increment = () => {
     setCount(count + 1);
